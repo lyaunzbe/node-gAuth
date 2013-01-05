@@ -1,5 +1,5 @@
 {
-  "name": "node-gAuth",
+  "name": "node-gauth",
   "description": "",
   "version": "0.0.1",
   "author": "Ben Lyaunzon <lyaunzon.b@gmail.com>",
@@ -10,17 +10,17 @@
     "google-api",
     "api"
   ],
-  "homepage": "https://github.com/lyaunzbe/node-gAuth",
+  "homepage": "https://github.com/lyaunzbe/node-gauth",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lyaunzbe/node-gAuth.git"
+    "url": "https://github.com/lyaunzbe/node-gauth.git"
   },
   "engines": {
     "node": ">= 0.8.x"
   },
   "main": "lib/gdrive.js",
   "dependencies": {
-    "request": ">= 2.12.0",
+    "request": ">= 2.12.0"
   },
   "devDependencies": {
     "mocha": ">= 1.7.4",
