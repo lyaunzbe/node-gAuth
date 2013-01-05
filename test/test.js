@@ -26,7 +26,7 @@ describe('Google Oauth', function(){
      });
   });
   
-  describe('#getTokens()', function(){
+  describe('#getToken()', function(){
     it('Respond with access token, refresh token, etc', function(done){
       gAuth.getToken(auth_code, function(err, body){
         console.log(body);
@@ -37,6 +37,19 @@ describe('Google Oauth', function(){
       });
      });
   });
+
+  describe('#getToken()', function(){
+    it('Respond with access token, refresh token, etc', function(done){
+      gAuth.getToken(auth_code, function(err, body){
+        console.log(body);
+        should.not.exist(err);
+        should.exist(body);
+        body.should.be.an('object');
+        done();
+      });
+     });
+  });
+
 
 });
 

@@ -26,9 +26,10 @@ module.exports =  function(opts) {
       redirect_uri: opts.redirect_uri,
       scope: 'https://www.googleapis.com/auth/userinfo.profile'	
     };
-    
-    var uri = '\''+endpoint + '?' + querystring.stringify(qs) +'\'';
 
+    var uri = '\''+endpoint + '?' + querystring.stringify(qs) +'\'';
+    
+    //TODO: Make OS agnostic w/ xdg-open, open, etc.
     exec('open '+uri, function(err){
       if(err !== null){
         callback(err);
@@ -57,7 +58,7 @@ module.exports =  function(opts) {
    *
    * @param {String} code The acquired authorization code
    */
-  function getTokens(code, callback){
+  function getToken(code, callback){
     var uri = 'https://accounts.google.com/o/oauth2/token';
     var form = {
       code : code,
@@ -76,11 +77,16 @@ module.exports =  function(opts) {
     });
   }
 
+  /**
+   * Given a refresh token and provided opts, returns a new
+   * access
+   */
+
   gAuth.getAuthCode = getAuthCode;
 
-  gAuth.getTokens = getTokens;
+  gAuth.getToken = getToken;
 
-  //gAuth.refreshToken = refreshToken;
+  gAuth.refreshToken = refreshToken;
 
   return gAuth;
 
