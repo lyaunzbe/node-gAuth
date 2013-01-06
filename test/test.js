@@ -33,14 +33,17 @@ describe('Google Oauth', function(){
         should.not.exist(err);
         should.exist(body);
         body.should.be.an('object');
+        access_token = body.access_token;
+        refresh_token = body.refresh_token;
+        //Add value tests
         done();
       });
      });
   });
 
-  describe('#getToken()', function(){
-    it('Respond with access token, refresh token, etc', function(done){
-      gAuth.getToken(auth_code, function(err, body){
+  describe('#refreshToken()', function(){
+    it('Respond with new access token, expiration time, etc', function(done){
+      gAuth.refreshToken(refresh_token, function(err, body){
         console.log(body);
         should.not.exist(err);
         should.exist(body);
