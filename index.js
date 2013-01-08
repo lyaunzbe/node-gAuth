@@ -88,10 +88,10 @@ module.exports =  function(opts) {
       refresh_token: refresh_token,
       client_id: opts.client_id,
       client_secret: opts.client_secret,
-      grant_type:grant_type
+      grant_type:'refresh_token'
     };
 
-    request.post({url: endoint_token, form:form}, function(err, req, body){
+    request.post({url: endpoint_token, form:form}, function(err, req, body){
       if(err !== null){
         callback(err);
       }else{

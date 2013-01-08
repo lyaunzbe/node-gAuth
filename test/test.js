@@ -29,10 +29,10 @@ describe('Google Oauth', function(){
   describe('#getToken()', function(){
     it('Respond with access token, refresh token, etc', function(done){
       gAuth.getToken(auth_code, function(err, body){
-        console.log(body);
         should.not.exist(err);
         should.exist(body);
         body.should.be.an('object');
+        body.should.have.length(5);
         access_token = body.access_token;
         refresh_token = body.refresh_token;
         //Add value tests
@@ -44,10 +44,10 @@ describe('Google Oauth', function(){
   describe('#refreshToken()', function(){
     it('Respond with new access token, expiration time, etc', function(done){
       gAuth.refreshToken(refresh_token, function(err, body){
-        console.log(body);
         should.not.exist(err);
         should.exist(body);
         body.should.be.an('object');
+        body.should.have.length(4);
         done();
       });
      });
